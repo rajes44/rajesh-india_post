@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Starter client for the accessibility audit project.">
+  <title>Accessibility Audit Project</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header>
+    <p class="eyebrow">Repository starter</p>
+    <h1>Accessibility Audit Workspace</h1>
+  </header>
+  <main id="main">
+    <section aria-labelledby="status-heading">
+      <h2 id="status-heading">Project status</h2>
+      <p>This is the local project foundation for the India Post accessibility audit.</p>
+      <p id="api-status" role="status" aria-live="polite">Checking server status…</p>
+    </section>
+  </main>
+  <script>
+    fetch('/api/health')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('api-status').textContent =
+          `Server status: ${data.status}`;
+      })
+      .catch(() => {
+        document.getElementById('api-status').textContent =
+          'Server status unavailable.';
+      });
+  </script>
+</body>
+</html>

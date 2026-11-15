@@ -1,0 +1,10 @@
+{
+  "name": "india-post-accessibility-architecture-audit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Accessibility audit workspace and monorepo-style project starter",
+  "scripts": {
+    "dev": "node server/server.js",
+    "test": "node --test"
+  }
+}
